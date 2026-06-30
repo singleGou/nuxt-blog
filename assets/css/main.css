@@ -5,8 +5,18 @@
 @theme {
   --color-bg-warm: #F8F5F0;
   --color-bg-card: #FFFFFF;
+  --color-forest: #2D5A3D;
+  --color-forest-dark: #1E3D28;
+  --color-forest-light: #4A7A5A;
+  --color-forest-mist: #6B9A7E;
+  --color-warm-gold: #B8A67C;
+  --color-warm-stone: #A89F91;
+  --color-ink: #1C1917;
+  --color-cream: #F5F0E8;
   --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.06);
   --shadow-card-hover: 0 4px 12px -2px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-photo: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-photo-hover: 0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 @layer base {
@@ -24,7 +34,12 @@
 
   :root {
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
     --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
   }
 }
 
@@ -32,10 +47,9 @@
 .prose {
   --tw-prose-body: theme(colors.stone.700);
   --tw-prose-headings: theme(colors.stone.900);
-  --tw-prose-links: theme(colors.emerald.600);
+  --tw-prose-links: theme(colors.forest);
   --tw-prose-bold: theme(colors.stone.900);
-  --tw-prose-quotes: theme(colors.stone.600);
-  --tw-prose-code: theme(colors.emerald.700);
+  --tw-prose-code: theme(colors.forest);
   --tw-prose-hr: theme(colors.stone.200);
   --tw-prose-th-borders: theme(colors.stone.300);
   --tw-prose-td-borders: theme(colors.stone.200);
@@ -44,9 +58,9 @@
 .dark .prose {
   --tw-prose-body: theme(colors.stone.300);
   --tw-prose-headings: theme(colors.white);
-  --tw-prose-links: theme(colors.emerald.400);
+  --tw-prose-links: theme(colors.forest-light);
   --tw-prose-bold: theme(colors.white);
-  --tw-prose-code: theme(colors.emerald.400);
+  --tw-prose-code: theme(colors.forest-light);
   --tw-prose-hr: theme(colors.stone.800);
   --tw-prose-th-borders: theme(colors.stone.700);
   --tw-prose-td-borders: theme(colors.stone.800);
