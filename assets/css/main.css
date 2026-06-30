@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-bg-warm: #F8F5F0;
+  --color-bg-card: #FFFFFF;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-card-hover: 0 4px 12px -2px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-warm);
+  }
+
+  .dark body {
+    background-color: theme(colors.stone.950);
+  }
+
+  :root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  }
+}
+
+/* Prose customizations for content rendering */
+.prose {
+  --tw-prose-body: theme(colors.stone.700);
+  --tw-prose-headings: theme(colors.stone.900);
+  --tw-prose-links: theme(colors.emerald.600);
+  --tw-prose-bold: theme(colors.stone.900);
+  --tw-prose-quotes: theme(colors.stone.600);
+  --tw-prose-code: theme(colors.emerald.700);
+  --tw-prose-hr: theme(colors.stone.200);
+  --tw-prose-th-borders: theme(colors.stone.300);
+  --tw-prose-td-borders: theme(colors.stone.200);
+}
+
+.dark .prose {
+  --tw-prose-body: theme(colors.stone.300);
+  --tw-prose-headings: theme(colors.white);
+  --tw-prose-links: theme(colors.emerald.400);
+  --tw-prose-bold: theme(colors.white);
+  --tw-prose-code: theme(colors.emerald.400);
+  --tw-prose-hr: theme(colors.stone.800);
+  --tw-prose-th-borders: theme(colors.stone.700);
+  --tw-prose-td-borders: theme(colors.stone.800);
+}
+
+/* Code block styles */
+.prose pre {
+  @apply rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm;
+}
+
+.prose code {
+  @apply font-medium text-sm;
+}
+
+.prose pre code {
+  @apply font-normal;
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  @apply bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded-md font-medium;
+}
+
+/* Shiki syntax highlighting */
+.shiki,
+.shiki span {
+  color: var(--shiki-light, inherit);
+  background-color: var(--shiki-light-bg, inherit) !important;
+  font-style: var(--shiki-light-font-style, inherit);
+  font-weight: var(--shiki-light-font-weight, inherit);
+  text-decoration: var(--shiki-light-text-decoration, inherit);
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark, inherit);
+  background-color: var(--shiki-dark-bg, inherit) !important;
+  font-style: var(--shiki-dark-font-style, inherit);
+  font-weight: var(--shiki-dark-font-weight, inherit);
+  text-decoration: var(--shiki-dark-text-decoration, inherit);
+}
