@@ -29,6 +29,10 @@ function formatDate(d: string) {
   return new Date(d).toLocaleDateString("zh-CN", { year: "numeric", month: "2-digit", day: "2-digit" });
 }
 
+function hideOnError(e: Event) {
+  (e.target as HTMLImageElement).style.display = "none";
+}
+
 const nordicImages = [
   "https://images.unsplash.com/photo-1518495973-e2cf1e4c3a4a?w=800&q=80",
   "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&q=80",
@@ -81,12 +85,13 @@ const nordicImages = [
             :to="`/${cat.slug}`"
             class="group relative overflow-hidden rounded-2xl bg-white shadow-photo transition-all duration-500 hover:-translate-y-1 hover:shadow-photo-hover dark:bg-stone-900"
           >
-            <div class="aspect-[4/3] overflow-hidden">
+             <div class="aspect-[4/3] overflow-hidden bg-gradient-to-br from-forest-dark to-forest">
               <img
                 :src="nordicImages[i]"
                 :alt="cat.name"
                 class="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
                 loading="lazy"
+                @error="hideOnError"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             </div>
@@ -112,6 +117,7 @@ const nordicImages = [
                 :alt="post.title"
                 class="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
                 loading="lazy"
+                @error="hideOnError"
               />
             </div>
             <div class="p-5">
