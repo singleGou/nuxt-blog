@@ -34,12 +34,12 @@ function hideOnError(e: Event) {
 }
 
 const nordicImages = [
-  "https://images.unsplash.com/photo-1518495973-e2cf1e4c3a4a?w=800&q=80",
-  "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&q=80",
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
-  "https://images.unsplash.com/photo-1511497584788-876760111969?w=800&q=80",
-  "https://images.unsplash.com/photo-1440581575524-7f0a37c3a1a5?w=800&q=80",
-  "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=800&q=80",
+  "/images/nordic-1.jpg",
+  "/images/nordic-2.jpg",
+  "/images/nordic-3.jpg",
+  "/images/nordic-4.jpg",
+  "/images/nordic-5.jpg",
+  "/images/nordic-6.jpg",
 ];
 </script>
 
@@ -49,7 +49,7 @@ const nordicImages = [
     <div class="relative overflow-hidden bg-gradient-to-br from-forest via-forest-dark to-forest/80">
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.06)_0%,_transparent_60%)]" />
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,255,255,0.04)_0%,_transparent_50%)]" />
-      <div class="mx-auto max-w-5xl px-6 py-28 md:py-36">
+      <div class="mx-auto max-w-5xl px-6 py-8 md:py-16">
         <p class="mb-4 text-xs font-medium tracking-[0.35em] text-white/35 uppercase">
           自然 · 技术 · 生活
         </p>
@@ -68,9 +68,9 @@ const nordicImages = [
     </div>
 
     <!-- Gallery -->
-    <div class="bg-bg-warm px-4 py-16 md:px-6 md:py-24 dark:bg-stone-950">
+    <div class="bg-bg-warm px-4 py-4 md:px-6 md:py-8 dark:bg-stone-950">
       <div class="mx-auto max-w-6xl">
-        <div class="mb-14">
+        <div class="mb-4">
           <p class="font-serif mb-1.5 text-xs tracking-[0.3em] text-forest/40 uppercase">Portfolio</p>
           <h2 class="font-serif text-3xl font-bold text-ink md:text-4xl dark:text-cream">自然摄影集</h2>
           <p class="mt-3 text-sm leading-relaxed text-warm-stone max-w-lg">
