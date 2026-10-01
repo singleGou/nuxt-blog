@@ -1,44 +1,50 @@
 export interface Category {
-  slug: string
-  name: string
-  description: string
-  icon: string
+  slug: string;
+  name: string;
+  description: string;
+  icon: string;
 }
 
 export const CATEGORIES: Category[] = [
   {
-    slug: 'frontend',
-    name: '前端开发',
-    description: 'JavaScript、TypeScript、Vue 等前端技术探索',
-    icon: 'i-heroicons-code-bracket',
+    slug: "frontend",
+    name: "前端开发",
+    description: "JavaScript、TypeScript、Vue 等前端技术探索",
+    icon: "i-heroicons-code-bracket",
   },
   {
-    slug: 'ai',
-    name: '人工智能',
-    description: 'AI、机器学习、大语言模型等前沿内容',
-    icon: 'i-heroicons-cpu-chip',
+    slug: "fullstack",
+    name: "全栈开发",
+    description: "全栈架构、后端服务、数据库等实战经验",
+    icon: "i-heroicons-server-stack",
   },
   {
-    slug: 'fullstack',
-    name: '全栈开发',
-    description: '全栈架构、后端服务、数据库等实战经验',
-    icon: 'i-heroicons-server-stack',
+    slug: "ai",
+    name: "人工智能",
+    description: "AI、机器学习、大语言模型等前沿内容",
+    icon: "i-heroicons-cpu-chip",
   },
   {
-    slug: 'recipes',
-    name: '个人食谱',
-    description: '美食记录、烹饪心得与食谱分享',
-    icon: 'i-heroicons-cake',
+    slug: "recipes",
+    name: "个人食谱",
+    description: "美食记录、烹饪心得与食谱分享",
+    icon: "i-heroicons-cake",
   },
-]
+  {
+    slug: "thinking",
+    name: "思想感悟",
+    description: "大师我悟了",
+    icon: "i-heroicons-light-bulb",
+  },
+];
 
 export function useCategories() {
   function getCategoryBySlug(slug: string): Category | undefined {
-    return CATEGORIES.find(c => c.slug === slug)
+    return CATEGORIES.find((c) => c.slug === slug);
   }
 
   return {
     categories: CATEGORIES,
     getCategoryBySlug,
-  }
+  };
 }
