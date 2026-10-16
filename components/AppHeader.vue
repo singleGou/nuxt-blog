@@ -124,6 +124,7 @@ const tagMap = computed(() => {
         <div class="flex items-center gap-0">
           <NuxtLink
             to="/search"
+            aria-label="搜索文章"
             class="p-2 rounded-lg text-stone-500 hover:text-forest dark:text-stone-400 dark:hover:text-forest-mist hover:bg-forest/5 dark:hover:bg-forest/10 transition-colors"
           >
             <UIcon name="i-heroicons-magnifying-glass" class="size-5" />
