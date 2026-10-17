@@ -4,7 +4,7 @@ import { CATEGORIES } from "~/composables/useCategories";
 
 useSeoMeta({
   title: "HYY Blog - 技术与生活的光影",
-  description: "记录前端开发、AI、全栈技术与个人食谱的思考与实践。",
+  description: "记录前端开发、Web 3D、AI 应用开发与后端开发的思考与实践。",
 });
 
 const { data: allPosts } = await useAsyncData(
@@ -25,13 +25,7 @@ const categoryCounts = computed(() => {
   return counts;
 });
 
-const categoryImages: Record<string, string> = {
-  frontend: "/images/frontend.png",
-  fullstack: "/images/fullstack.png",
-  ai: "/images/ai.png",
-  recipes: "/images/recipes.png",
-  thinking: "/images/thinking.png",
-};
+const categoryImages = Object.fromEntries(CATEGORIES.map((category) => [category.slug, category.cover]));
 
 function categoryName(slug: string) {
   return CATEGORIES.find((category) => category.slug === slug)?.name ?? slug;
@@ -105,7 +99,7 @@ function hideOnError(event: Event) {
               <p v-if="post.description" class="mt-2 line-clamp-2 text-xs leading-6 text-stone-500 dark:text-stone-400">{{ post.description }}</p>
               <div class="mt-auto flex items-center justify-between gap-3 pt-5 text-[10px]">
                 <span class="truncate text-stone-400 dark:text-stone-500">{{ post.tags?.slice(0, 2).map((tag) => "#" + tag).join("  ") }}</span>
-                <span class="shrink-0 text-forest dark:text-forest-mist">阅读全文 <span class="ml-1" aria-hidden="true">→</span></span>
+                <span class="shrink-0 text-forest dark:text-forest-mist">{{ post.experience ? '进入体验' : '阅读全文' }} <span class="ml-1" aria-hidden="true">→</span></span>
               </div>
             </div>
           </NuxtLink>
@@ -122,16 +116,15 @@ function hideOnError(event: Event) {
             <p class="mb-2 text-[10px] tracking-[0.26em] text-forest/70 uppercase dark:text-forest-mist">Explore by topic</p>
             <h2 id="topics-heading" class="font-serif text-2xl font-bold text-ink sm:text-3xl dark:text-cream">探索主题</h2>
           </div>
-          <p class="text-xs leading-6 text-stone-500 dark:text-stone-400">从技术实践，到一餐一饭与生活思考。</p>
+          <p class="text-xs leading-6 text-stone-500 dark:text-stone-400">从界面与三维交互，到 AI 应用与服务端实践。</p>
         </div>
 
-        <div class="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-6">
+        <div class="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2">
           <NuxtLink
             v-for="(category, index) in CATEGORIES"
             :key="category.slug"
             :to="'/' + category.slug"
             class="group relative overflow-hidden rounded-2xl bg-forest-dark shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-photo"
-            :class="index < 3 ? 'lg:col-span-2' : 'lg:col-span-3'"
           >
             <div class="relative aspect-[16/9] min-h-44 lg:aspect-auto lg:h-48">
               <img :src="categoryImages[category.slug]" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" @error="hideOnError" />
@@ -139,7 +132,7 @@ function hideOnError(event: Event) {
             </div>
             <div class="absolute inset-0 flex flex-col justify-end p-5">
               <div class="mb-2 flex items-center justify-between text-[10px] text-white/65">
-                <span class="tracking-[0.2em]">0{{ index + 1 }} / {{ categoryCounts[category.slug] ?? 0 }} 篇文章</span>
+                <span class="tracking-[0.2em]">0{{ index + 1 }} / {{ categoryCounts[category.slug] ?? 0 }} 篇内容</span>
                 <span class="text-base transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true">↗</span>
               </div>
               <h3 class="font-serif text-xl font-bold text-white">{{ category.name }}</h3>

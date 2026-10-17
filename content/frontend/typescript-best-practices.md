@@ -3,6 +3,7 @@ title: "TypeScript 最佳实践与常见陷阱"
 description: "整理在 Vue/Nuxt 项目中使用 TypeScript 的实战经验，涵盖类型体操、泛型、工具类型等"
 date: "2025-02-20"
 category: "frontend"
+topic: "web-basics"
 tags: ["typescript", "javascript", "best-practices"]
 ---
 

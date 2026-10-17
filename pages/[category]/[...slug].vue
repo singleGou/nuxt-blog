@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useCategories } from '~/composables/useCategories'
+import { getTopicBySlug, getTopicPath } from '~/composables/useTopics'
+import type { PostsCollectionItem, ArchivesCollectionItem } from '@nuxt/content'
 
 const route = useRoute()
 const { getCategoryBySlug } = useCategories()
@@ -11,15 +13,24 @@ const slugParts = computed(() => {
 })
 const contentPath = computed(() => `/${categorySlug.value}/${slugParts.value.join('/')}`)
 
-const { data: post } = await useAsyncData(`post-${contentPath.value}`, () =>
-  queryCollection('posts').path(contentPath.value).first(),
+const { data: post } = await useAsyncData<PostsCollectionItem | ArchivesCollectionItem | null>(`post-${contentPath.value}`, async () =>
+  categorySlug.value === 'recipes'
+    ? queryCollection('archives').path(contentPath.value).first()
+    : queryCollection('posts').path(contentPath.value).first(),
 )
 
-if (!post.value) {
+if (!post.value || post.value.draft) {
   throw createError({ statusCode: 404, statusMessage: '文章不存在' })
 }
 
-const category = computed(() => getCategoryBySlug(post.value?.category ?? ''))
+const category = computed(() => getCategoryBySlug(post.value?.category ?? '') ?? (
+  categorySlug.value === 'recipes'
+    ? { name: '旧文归档', icon: 'i-heroicons-archive-box' }
+    : undefined
+))
+const topic = computed(() => post.value && post.value.category !== 'recipes'
+  ? getTopicBySlug(post.value.category, post.value.topic)
+  : undefined)
 
 const formattedDate = computed(() => {
   if (!post.value?.date) return ''
@@ -31,7 +42,7 @@ const formattedDate = computed(() => {
 })
 
 function goToTag(tag: string) {
-  navigateTo(`/${categorySlug.value}/tag/${tag}`)
+  navigateTo(categorySlug.value === 'recipes' ? '/recipes' : `/${categorySlug.value}/tag/${encodeURIComponent(tag)}`)
 }
 
 useSeoMeta({
@@ -57,6 +68,10 @@ useSeoMeta({
         {{ category.name }}
       </NuxtLink>
       <UIcon name="i-heroicons-chevron-right" class="size-4 shrink-0" />
+      <template v-if="topic">
+        <NuxtLink :to="getTopicPath(categorySlug, topic.slug)" class="hover:text-emerald-600 dark:hover:text-emerald-400">{{ topic.name }}</NuxtLink>
+        <UIcon name="i-heroicons-chevron-right" class="size-4 shrink-0" />
+      </template>
       <span class="text-stone-900 dark:text-white font-medium truncate">{{ post.title }}</span>
     </nav>
 

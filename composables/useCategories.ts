@@ -1,8 +1,12 @@
+export const CATEGORY_SLUGS = ['frontend', 'web-3d', 'ai', 'backend'] as const;
+export type CategorySlug = typeof CATEGORY_SLUGS[number];
+
 export interface Category {
-  slug: string;
+  slug: CategorySlug;
   name: string;
   description: string;
   icon: string;
+  cover: string;
 }
 
 export const CATEGORIES: Category[] = [
@@ -11,30 +15,28 @@ export const CATEGORIES: Category[] = [
     name: "前端开发",
     description: "JavaScript、TypeScript、Vue 等前端技术探索",
     icon: "i-heroicons-code-bracket",
+    cover: "/images/frontend.png",
   },
   {
-    slug: "fullstack",
-    name: "全栈开发",
-    description: "全栈架构、后端服务、数据库等实战经验",
-    icon: "i-heroicons-server-stack",
+    slug: "web-3d",
+    name: "Web 3D",
+    description: "Three.js、浏览器图形与可交互的三维作品",
+    icon: "i-heroicons-cube-transparent",
+    cover: "/images/web-3d.svg",
   },
   {
     slug: "ai",
-    name: "人工智能",
-    description: "AI、机器学习、大语言模型等前沿内容",
+    name: "AI 应用开发",
+    description: "大语言模型、智能体与 AI 产品的开发实践",
     icon: "i-heroicons-cpu-chip",
+    cover: "/images/ai.png",
   },
   {
-    slug: "recipes",
-    name: "个人食谱",
-    description: "美食记录、烹饪心得与食谱分享",
-    icon: "i-heroicons-cake",
-  },
-  {
-    slug: "thinking",
-    name: "思想感悟",
-    description: "大师我悟了",
-    icon: "i-heroicons-light-bulb",
+    slug: "backend",
+    name: "后端开发",
+    description: "Node.js、服务端接口、数据库与部署实践",
+    icon: "i-heroicons-server-stack",
+    cover: "/images/fullstack.png",
   },
 ];
 

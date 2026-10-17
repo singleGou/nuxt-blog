@@ -20,12 +20,13 @@ useSeoMeta({
     <div class="prose prose-slate dark:prose-invert max-w-none">
       <h2>关于这个博客</h2>
       <p>
-        这是一个用于记录技术学习与生活感悟的个人博客。内容涵盖前端开发（JavaScript、TypeScript、Vue.js）、人工智能、全栈开发以及个人食谱等方向。
+        这是一个用于记录技术学习与实践的个人博客。内容围绕前端开发、Web 3D、AI 应用开发与后端开发，也通过可交互的作品探索知识的表达方式。
       </p>
 
       <h2>技术栈</h2>
       <ul>
         <li><strong>前端：</strong>Vue 3、Nuxt.js、TypeScript、Tailwind CSS</li>
+        <li><strong>Web 3D：</strong>Three.js、WebGL、三维交互与可视化</li>
         <li><strong>后端：</strong>Node.js、Python、数据库设计</li>
         <li><strong>AI：</strong>大语言模型、Prompt Engineering、AI 应用开发</li>
       </ul>

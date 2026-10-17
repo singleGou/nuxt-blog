@@ -59,23 +59,26 @@ const displayPosts = computed(() => {
             <h1 class="text-3xl font-extrabold text-stone-900 dark:text-white">
               {{ category.name }} · {{ currentTag }}
             </h1>
-            <p class="text-sm text-stone-400 dark:text-stone-500 mt-1">{{ displayPosts.length }} 篇文章</p>
+            <p class="text-sm text-stone-400 dark:text-stone-500 mt-1">{{ displayPosts.length }} 篇内容</p>
           </div>
         </div>
       </section>
 
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-        <div v-if="allTags.length" class="flex flex-wrap gap-2 mb-8">
+        <TopicNavigation :category="categorySlug" :posts="nonDraftPosts" />
+        <div v-if="allTags.length" class="mb-8">
+          <p class="mb-3 text-xs font-medium text-stone-500 dark:text-stone-400">技术标签</p>
+          <div class="flex flex-wrap gap-2">
           <NuxtLink
             :to="`/${categorySlug}`"
             class="px-3 py-1.5 rounded-full text-sm font-medium transition-colors bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700"
           >
-            全部
+            全部标签
           </NuxtLink>
           <NuxtLink
             v-for="tag in allTags"
             :key="tag"
-            :to="`/${categorySlug}/tag/${tag}`"
+            :to="`/${categorySlug}/tag/${encodeURIComponent(tag)}`"
             class="px-3 py-1.5 rounded-full text-sm font-medium transition-colors"
             :class="tag === currentTag
               ? 'bg-emerald-600 text-white'
@@ -83,6 +86,7 @@ const displayPosts = computed(() => {
           >
             #{{ tag }}
           </NuxtLink>
+          </div>
         </div>
 
         <div v-if="displayPosts.length" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

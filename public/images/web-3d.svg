@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#426b52"/><stop offset="1" stop-color="#122c24"/></radialGradient>
+    <linearGradient id="cube" x2="1" y2="1"><stop stop-color="#99b8a0" stop-opacity=".6"/><stop offset="1" stop-color="#d6ba86" stop-opacity=".15"/></linearGradient>
+    <pattern id="grid" width="55" height="55" patternUnits="userSpaceOnUse"><path d="M55 0H0V55" fill="none" stroke="#a7bc9e" stroke-opacity=".08"/></pattern>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v675H0z"/><path fill="url(#grid)" d="M0 0h1200v675H0z"/>
+  <g fill="none" stroke="#c1cfaf" stroke-opacity=".26"><ellipse cx="600" cy="320" rx="365" ry="190"/><ellipse cx="600" cy="320" rx="365" ry="100" transform="rotate(-25 600 320)"/></g>
+  <g stroke="#c9d6b8" stroke-width="2" stroke-linejoin="round">
+    <path d="m600 130 175 100v200L600 530 425 430V230Z" fill="url(#cube)"/>
+    <path d="m425 230 175 100 175-100M600 330v200" fill="none"/>
+    <path d="m425 430 175-100 175 100M600 130v200" fill="none" stroke-dasharray="7 10" stroke-opacity=".4"/>
+  </g>
+  <g fill="#dbc59c"><circle cx="600" cy="130" r="6"/><circle cx="425" cy="230" r="6"/><circle cx="775" cy="230" r="6"/><circle cx="600" cy="330" r="7"/><circle cx="425" cy="430" r="6"/><circle cx="775" cy="430" r="6"/><circle cx="600" cy="530" r="6"/></g>
+</svg>

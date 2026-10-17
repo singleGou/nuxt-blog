@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { PostsCollectionItem } from '@nuxt/content'
+import { getTopicBySlug } from '~/composables/useTopics'
 
 const props = defineProps<{
   post: PostsCollectionItem
 }>()
+const topic = computed(() => getTopicBySlug(props.post.category, props.post.topic))
 
 const formattedDate = computed(() => {
   return new Date(props.post.date).toLocaleDateString('zh-CN', {
@@ -21,7 +23,15 @@ const formattedDate = computed(() => {
   >
     <!-- Cover image -->
     <div v-if="post.cover" class="aspect-video overflow-hidden bg-stone-100 dark:bg-stone-800">
+      <img
+        v-if="post.experience"
+        :src="post.cover"
+        alt=""
+        loading="lazy"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
       <NuxtImg
+        v-else
         :src="post.cover"
         :alt="post.title"
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -30,7 +40,10 @@ const formattedDate = computed(() => {
 
     <div class="p-5">
       <!-- Date -->
-      <time class="text-xs text-stone-400 dark:text-stone-500 mb-3 block">{{ formattedDate }}</time>
+      <div class="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-stone-400 dark:text-stone-500">
+        <time :datetime="post.date">{{ formattedDate }}</time>
+        <span v-if="topic" class="text-forest dark:text-forest-mist">{{ topic.name }}</span>
+      </div>
 
       <!-- Title -->
       <h2 class="font-bold text-lg text-stone-900 dark:text-white line-clamp-2 mb-2 leading-snug">
@@ -52,6 +65,7 @@ const formattedDate = computed(() => {
           #{{ tag }}
         </span>
       </div>
+      <p v-if="post.experience" class="mt-4 text-xs font-medium text-forest dark:text-forest-mist">交互作品 · 进入体验 →</p>
     </div>
   </NuxtLink>
 </template>

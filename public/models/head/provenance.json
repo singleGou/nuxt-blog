@@ -1,0 +1,24 @@
+{
+  "sourceUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/skin-male/v1.2/assets/VH_M_Skin.glb",
+  "sourcePage": "https://purl.humanatlas.io/ref-organ/skin-male/v1.2",
+  "doi": "https://doi.org/10.48539/HBM369.SBSP.863",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "authors": [
+    "Kristen Browne",
+    "Heidi Schlehlein"
+  ],
+  "sourceSha256": "8cab299d04323e6364938a271647df5671138a2177f412e741a0d6bd4536ee1c",
+  "bytes": 252372,
+  "outputSha256": "2a29bf60bcd4f3234337822f5fdad44ef1a124afabb2a18379cae5e581ce8aa5",
+  "vertices": 7021,
+  "triangles": 13789,
+  "cutY": 0.685,
+  "brainSourceCenter": [
+    -0.00009003769999999661,
+    0.82956705,
+    -0.0011552270999999961
+  ],
+  "brainSourceRadius": 0.08351975710000001,
+  "modifications": "Clipped source skin above the upper-neck plane; discarded torso and limbs, retained facial/head shape; applied the SAME translation and uniform scale as the brain asset. No independent head fitting, no face reconstruction. Neck cut is left open."
+}

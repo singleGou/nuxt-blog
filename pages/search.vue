@@ -16,10 +16,10 @@ const { data: allPosts } = await useAsyncData('search-posts', () =>
 const results = computed(() => {
   if (!query.value.trim()) return []
   const q = query.value.toLowerCase()
-  return (allPosts.value ?? []).filter(p =>
+  return (allPosts.value ?? []).filter(p => !p.draft && (
     p.title?.toLowerCase().includes(q)
     || p.description?.toLowerCase().includes(q)
-    || p.tags?.some(t => t.toLowerCase().includes(q)),
+    || p.tags?.some(t => t.toLowerCase().includes(q))),
   )
 })
 </script>

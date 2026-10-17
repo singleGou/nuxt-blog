@@ -14,7 +14,7 @@ const year = new Date().getFullYear()
             HYY Blog
           </div>
           <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
-            记录技术探索与生活感悟的个人博客，分享前端开发、AI、全栈技术与美食食谱。
+            记录前端开发、Web 3D、AI 应用开发与后端开发的思考与实践。
           </p>
         </div>
 

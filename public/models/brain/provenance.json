@@ -1,0 +1,22 @@
+{
+  "sourceUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/brain-male/v1.3/assets/3d-vh-m-allen-brain.glb",
+  "sourcePage": "https://purl.humanatlas.io/ref-organ/brain-male/v1.3",
+  "doi": "https://doi.org/10.48539/HBM929.XKCL.339",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "authors": [
+    "Kristen Browne",
+    "Heidi Schlehlein"
+  ],
+  "sourceSha256": "2b9ad5b53e40e9f0936da74f7be38d2eed15604e26358c3870a0ea13499b9a35",
+  "modifications": "Recentered and uniformly rescaled; quantized positions to 16-bit and normals to 8-bit; replaced materials. All 283 original meshes and anatomical names preserved. No new anatomical geometry.",
+  "meshCount": 283,
+  "bytes": 8105156,
+  "sourceBytes": 11977312,
+  "sourceCenter": [
+    -0.00009003769999999661,
+    0.82956705,
+    -0.0011552270999999961
+  ],
+  "sourceRadius": 0.08351975710000001
+}

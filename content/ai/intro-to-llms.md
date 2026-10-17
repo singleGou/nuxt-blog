@@ -3,6 +3,7 @@ title: "大语言模型（LLM）入门指南"
 description: "从零理解大语言模型的工作原理，包括 Transformer 架构、Prompt Engineering 与实际应用技巧"
 date: "2025-04-05"
 category: "ai"
+topic: "models-prompts"
 tags: ["llm", "ai", "prompt-engineering", "transformer"]
 featured: true
 ---

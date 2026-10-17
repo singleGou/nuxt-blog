@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { env } from 'node:process'
+
 export default defineNuxtConfig({
+  // Allow an isolated production build while the local dev service remains active.
+  buildDir: env.NUXT_BUILD_DIR || '.nuxt',
   devtools: { enabled: true },
   ui: { fonts: false },
 
@@ -11,17 +15,28 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  routeRules: {
+    '/fullstack': { redirect: { to: '/backend', statusCode: 301 } },
+    '/fullstack/**': { redirect: { to: '/backend/**', statusCode: 301 } },
+    '/thinking': { redirect: { to: '/', statusCode: 301 } },
+    '/recipes/tag/**': { redirect: { to: '/recipes', statusCode: 301 } },
+  },
+
   content: {
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark',
+          },
+          langs: [
+            'js', 'ts', 'jsx', 'tsx', 'vue', 'html', 'css', 'scss',
+            'json', 'bash', 'shell', 'python', 'sql', 'yaml', 'markdown',
+            'go', 'rust', 'java', 'cpp',
+          ],
+        },
       },
-      langs: [
-        'js', 'ts', 'jsx', 'tsx', 'vue', 'html', 'css', 'scss',
-        'json', 'bash', 'shell', 'python', 'sql', 'yaml', 'markdown',
-        'go', 'rust', 'java', 'cpp',
-      ],
     },
   },
 

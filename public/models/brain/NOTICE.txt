@@ -1,0 +1,28 @@
+Brain model attribution
+=======================
+Kristen Browne; Heidi Schlehlein. 2023.
+3D Reference Organ for Brain, Male v1.3. HuBMAP Human Reference Atlas.
+DOI: https://doi.org/10.48539/HBM929.XKCL.339
+Source: https://purl.humanatlas.io/ref-organ/brain-male/v1.3
+Asset: https://cdn.humanatlas.io/digital-objects/ref-organ/brain-male/v1.3/assets/3d-vh-m-allen-brain.glb
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Source provenance: Allen Human Reference Atlas - 3D, 2020 (Ding et al., 2016).
+The source atlas mirrored 141 structures to form a whole brain and resized them
+to the Visible Human Male body. It is not a subject-specific scan of two hemispheres.
+HRA entry and original model metadata supply the above attribution and license.
+
+Changes by HYY Blog:
+- Centered and uniformly rescaled the geometry, preserving relative positions.
+- Quantized positions to signed 16-bit and normals to signed 8-bit, using the
+  standard glTF KHR_mesh_quantization extension. Topology and all 283 meshes retained.
+- Replaced original colors with a neutral material and interactive highlights.
+- Grouped selected named structures into six introductory educational entries.
+  The prefrontal entry highlights related frontal gyri, not a precise prefrontal
+  boundary; superior/middle frontal gyri extend beyond the prefrontal cortex.
+  No additional anatomical surface was procedurally generated.
+
+Rebuild with Node 22: node scripts/prepare-brain-model.mjs [cached-source.glb]
+See provenance.json for the source SHA-256 and compression parameters.
+Use for educational exploration; this interface does not provide medical localization.

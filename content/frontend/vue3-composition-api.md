@@ -3,6 +3,7 @@ title: "Vue 3 Composition API 完全指南"
 description: "从 Options API 到 Composition API 的迁移指南，深入理解 setup()、响应式原理与组合式函数"
 date: "2025-03-10"
 category: "frontend"
+topic: "frameworks"
 tags: ["vue", "javascript", "composition-api"]
 featured: true
 ---

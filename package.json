@@ -15,11 +15,14 @@
     "@nuxt/ui": "^3.0.0",
     "better-sqlite3": "^12.9.0",
     "nuxt": "^3.16.0",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "three": "0.180.0"
   },
   "devDependencies": {
     "@iconify-json/heroicons": "^1.2.3",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.20.5",
+    "@types/three": "0.180.0",
     "typescript": "^5.7.0",
     "vue-tsc": "^2.1.0"
   },

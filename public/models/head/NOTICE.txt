@@ -1,0 +1,30 @@
+Head skin model attribution
+===========================
+Kristen Browne; Heidi Schlehlein. HuBMAP Human Reference Atlas.
+3D Reference Organ for Skin, Male v1.2.
+Source metadata citation: Kristen Browne. 2021. Skin, Male v1.2.
+DOI: https://doi.org/10.48539/HBM369.SBSP.863
+Source: https://purl.humanatlas.io/ref-organ/skin-male/v1.2
+Asset: https://cdn.humanatlas.io/digital-objects/ref-organ/skin-male/v1.2/assets/VH_M_Skin.glb
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+The original skin model was created from Visible Human Male data provided by
+the U.S. National Library of Medicine. Original metadata lists Kristen Browne
+and Heidi Schlehlein as creators.
+
+Changes by HYY Blog:
+- Clipped the skin at Y=0.685 metres in the source coordinate system to retain
+  the head and upper neck only. Triangles crossing that plane were clipped;
+  the neck opening is left uncapped. Torso and limbs are not included.
+- Discarded vertex colors and adjusted the material to a transparent, rim-emphasized
+  head contour. No face reconstruction or independent head rescaling was applied.
+- Used exactly the translation and uniform scaling recorded in the brain asset's
+  provenance.json, retaining the source HRA alignment between brain and skin.
+
+This is a skin outline for spatial context, not a skull layer or a complete head
+anatomy atlas. Brain geometry comes from a separate HRA reference organ; see
+/models/brain/NOTICE.txt. Both reference organs share the HRA body coordinate system.
+
+Rebuild with Node 22: node scripts/prepare-head-model.mjs [cached-VH_M_Skin.glb]
+Source/output checksums and extraction parameters are recorded in provenance.json.

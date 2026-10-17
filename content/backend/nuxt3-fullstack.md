@@ -2,7 +2,8 @@
 title: "Nuxt 3 全栈开发实战"
 description: "使用 Nuxt 3 构建全栈应用，涵盖 API Routes、数据库集成、身份认证与部署"
 date: "2025-01-15"
-category: "fullstack"
+category: "backend"
+topic: "api-deployment"
 tags: ["nuxt", "vue", "nodejs", "fullstack"]
 ---
 
